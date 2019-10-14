@@ -1,17 +1,15 @@
-const App = require('../lib/bs/src/App').comp;
-
+const App = require('../lib/js/src/App.bs.js').make;  
 import './client.css';
 
 import React from 'react';
-import { render } from 'react-dom';
+import { hydrate } from 'react-dom';
 
-// No JSX required, it's already in JS.
-render(
-  React.createElement(App, {
-    title: 'Welcome to Razzle Reason React!',
-  }),
+const renderClient = hydrate(
+  React.createElement(App),
   document.getElementById('root')
 );
+
+window.addEventListener('DOMContentLoaded', renderClient, false);
 
 if (module.hot) {
   module.hot.accept();
