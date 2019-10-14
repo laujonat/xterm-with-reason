@@ -1,4 +1,4 @@
-const App = require('../lib/bs/src/App').comp;
+const App = require('./App.bs.js').make;  
 
 import './client.css';
 
@@ -7,9 +7,7 @@ import { render } from 'react-dom';
 
 // No JSX required, it's already in JS.
 render(
-  React.createElement(App, {
-    title: 'Welcome to Razzle Reason React!',
-  }),
+  React.createElement(App),
   document.getElementById('root')
 );
 

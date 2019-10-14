@@ -1,20 +1,18 @@
-const App = require('../lib/bs/src/App').comp;
-
+const App = require('./App.bs.js').make;  
 import React from 'react';
 import express from 'express';
 import path from 'path';
 import { renderToString } from 'react-dom/server';
 
+
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
-
 server
-  .disable('x-powered-by')
-  .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
-  .get('/*', (req, res) => {
-    // Again, no JSX needed
-    const markup = renderToString(
+.disable('x-powered-by')
+.use(express.static(process.env.RAZZLE_PUBLIC_DIR))
+.get('/*', (req, res) => {
+  const markup = renderToString(
       React.createElement(App, {
         title: 'Welcome to Razzle Reason React',
       })
@@ -33,7 +31,7 @@ server
     <body>
         <div id="root">${markup}</div>
     </body>
-</html>`
+    </html>`
     );
   });
 
