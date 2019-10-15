@@ -21,7 +21,7 @@ server
       <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charSet='utf-8' />
-        <title>Welcome to Razzle Reason React</title>
+        <title>XTerm-With-Reason | Terminal</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         ${assets.client.css ? `<link rel="stylesheet" href="${assets.client.css}">` : ''}
         <script src="${assets.client.js}" defer></script>
