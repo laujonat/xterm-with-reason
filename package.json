@@ -12,6 +12,7 @@
     "start:prod": "NODE_ENV=production node build/server.js"
   },
   "dependencies": {
+    "bs-css": "^10.0.1",
     "express": "^4.17.1",
     "razzle": "^3.0.0",
     "react": "^16.10.2",

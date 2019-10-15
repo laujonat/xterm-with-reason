@@ -1,12 +1,8 @@
-let component = ReasonReact.statelessComponent("Index");
+// Css.(global("body", [margin(px(0))]));
 
+// Css.(global("h1, h2, h3", [color(rgb(33, 33, 33))]));
 let make = () => {
-    <>
-        <h1>{React.string("Hello World!")}</h1>
-        <Index/>
-    </>;
+  <div style=(ReactDOMRe.Style.make(~background="#0d101e", ()))>
+    <Index/>
+  </div>;
 }
-
-
-
-
