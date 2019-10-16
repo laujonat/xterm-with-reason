@@ -1,4 +1,4 @@
-// wrapper
+// ?? not necessary
 [@react.component]
 let make = (~children) => {
   <div> 
