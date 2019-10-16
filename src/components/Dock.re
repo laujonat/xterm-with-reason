@@ -1,42 +1,40 @@
-
 include Css;
 module Styles = {
-  let card = style([
-    display(flexBox),
-    flexDirection(column),
-    alignItems(stretch),
-    boxShadow(Shadow.box(~y=px(3), ~blur=px(5), rgba(0, 0, 0, 0.3))),
-    /* You can add non-standard and other unsafe style declarations using the `unsafe` function, with strings as the two arguments. */
-    unsafe("-webkit-overflow-scrolling", "touch"),
-    /* You can place all your theme styles in Theme.re and access as normal Reason module */
+  let container = style([
+    color(rgba(242, 238, 238, 1.0)),
+    minHeight(vh(100.0)),
+    overflow(hidden)
   ]);
 
-  let title = style([
-    fontSize(rem(1.5)),
-    marginBottom(em(2.0))
+  let bg = style([
+    background(rgb(224, 224, 224)),
+    bottom(px(0)),
+    left(px(0)),
+    position(fixed),
+    right(px(0))
   ]);
 
-  let actionButton = disabled =>
+  let dock =
     style([
-      background(disabled ? darkgray : white),
-      color(white),
-      border(px(1), solid, black),
-      borderRadius(px(3)),
-    ])
+      borderColor(white),
+      borderStyle(solid),
+      borderWidth(px(2)),
+      bottom(px(0)),
+      position(fixed),
+      height(px(100)),
+      left(px(0)),
+      textAlign(center),
+      right(px(0))
+    ]);
 };
 
 [@react.component]
 let make = () => {
-  let containerStyle =
-    ReactDOMRe.Style.make(
-      ~color="#f2eeee",
-      ~minHeight="100vh",
-      ~overflow="hidden",
-      (),
-    );
-  <div style={containerStyle} className={Styles.card}>
-    <Template name="hello world">
-      {React.string("Stuff will go here")}
-    </Template>
+  <div className={Styles.container}>
+    <div className={Styles.bg}>
+      <div className={Styles.dock}>
+        <div>{React.string("OCaml syntax with React-Reason")}</div>
+      </div>
+    </div>
   </div>;
 };

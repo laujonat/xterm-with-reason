@@ -22,6 +22,11 @@ body {
     "Segoe UI Symbol";
 }
 
+p {
+  margin: 0;
+  padding: 0;
+}
+
 svg:not(:root) {
   overflow: hidden;
 }

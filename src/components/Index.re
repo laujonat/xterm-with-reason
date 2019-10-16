@@ -1,11 +1,17 @@
-
+include Css;
+module Styles = {
+  let container =
+    style([
+      color(rgba(242, 238, 238, 1.0)),
+      minHeight(vh(100.0)),
+      overflow(hidden),
+    ]);
+};
 
 [@react.component]
 let make = () => {
-  let containerStyle = ReactDOMRe.Style.make(~color="#f2eeee", ~minHeight="100vh", ~overflow="hidden", ());
-  <div style={containerStyle}>
-    <Template name="hello world">
-      {React.string("Stuff will go here")}    
+  <div className={Styles.container}>
+    <Template>
       <Dock/>  
     </Template>
   </div>
