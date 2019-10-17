@@ -7,6 +7,7 @@ import { hydrate } from 'react-dom';
 import { Terminal } from 'xterm';
 import { WebLinksAddon } from 'xterm-addon-web-links';
 import { FitAddon } from 'xterm-addon-fit';
+import { AttachAddon } from 'xterm-addon-attach';
 
 
 let renderClient = hydrate(
@@ -15,21 +16,24 @@ let renderClient = hydrate(
 );
 
 let renderXTerm = () => {
-    const terminal = new Terminal();
-    const fitAddon = new FitAddon();
-    terminal.loadAddon(new WebLinksAddon());
-    terminal.loadAddon(new FitAddon());
-    
-    const container = document.getElementById('terminal');
-    terminal.open(container);
-    fitAddon.fit();
-    // const protocol = (location.protocol === 'https:') ? 'wss://' : 'ws://';
-    // const port = location.port ? `:${location.port}` : '';
-    // const socketUrl = `${protocol}${location.hostname}${port}/shell`;
-    // const socket = new WebSocket(socketUrl);
+  const protocol = (location.protocol === 'https:') ? 'wss://' : 'ws://';
+  const port = location.port ? `:${location.port}` : '';
+  
+  const socketUrl = `${protocol}${location.hostname}${port}/shell`;
+  const webSocket = new WebSocket(socketUrl);
 
-    // Attach the socket to the terminal
-    // socket.onopen = (ev) => { terminal.attach(socket); };
+  const shell = new Terminal();
+  const fitAddon = new FitAddon();
+  const attachAddon = new AttachAddon(webSocket);
+  
+
+  shell.loadAddon(new WebLinksAddon());
+  shell.loadAddon(fitAddon);
+  shell.loadAddon(attachAddon);
+
+  
+  shell.open(document.getElementById('terminal'));
+  shell.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
 }
 
 window.addEventListener('DOMContentLoaded', renderClient, false);
