@@ -15,3 +15,5 @@ macOS - yarn global add reason-cli@latest-macos
 Linux -	yarn global add reason-cli@latest-linux (Untested)
 
 `npm` should work the same here
+
+<img src="https://i.imgur.com/v6yFX9B.png" alt="screenshot">
