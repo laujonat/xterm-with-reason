@@ -1,8 +1,8 @@
-// Css.(global("body", [margin(px(0))]));
+include Styles;
 
-// Css.(global("h1, h2, h3", [color(rgb(33, 33, 33))]));
+[@react.component]
 let make = () => {
-  <div style=(ReactDOMRe.Style.make(~background="#0d101e", ()))>
+  <div className={Styles.root}>
     <Index/>
   </div>;
 }
