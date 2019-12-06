@@ -1,8 +1,7 @@
-// ?? not necessary
 [@react.component]
 let make = (~children) => {
-  <div> 
+  <React.Fragment> 
     children 
-  </div>;
+  </React.Fragment>;
 };
 

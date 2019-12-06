@@ -19,7 +19,7 @@
   ],
   "suffix": ".bs.js",
   "namespace": true,
-  "bs-dependencies": ["reason-react", "bs-css"],
+  "bs-dependencies": ["reason-react", "bs-css", "bs-express", "bs-socket"],
   "ppx-flags": [],
   "refmt": 3
 }

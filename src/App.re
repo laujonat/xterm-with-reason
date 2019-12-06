@@ -1,5 +1,8 @@
+include Styles;
+
+[@react.component]
 let make = () => {
-  <div style=(ReactDOMRe.Style.make(~background="#0d101e", ()))>
+  <div className={Styles.root}>
     <Index/>
   </div>;
 }

@@ -1,5 +1,6 @@
 {
   "name": "xterm-with-reason",
+  "author": "Jonathan Lau",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -13,6 +14,8 @@
   },
   "dependencies": {
     "bs-css": "^10.0.1",
+    "bs-express": "^1.0.0",
+    "bs-socket": "git+https://github.com/reasonml-community/bs-socket.io.git",
     "express": "^4.17.1",
     "express-ws": "^4.0.0",
     "pty.js": "^0.3.1",
@@ -34,6 +37,5 @@
   },
   "peerDependencies": {
     "react": "^16.10.2"
-  },
-  "author": "Jonathan Lau"
+  }
 }

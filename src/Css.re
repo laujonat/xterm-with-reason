@@ -1938,4 +1938,4 @@ module SVG = {
     );
   let stopColor = x => D("stopColor", Color.toString(x));
   let stopOpacity = x => D("stopOpacity", Js.Float.toString(x));
-};
+ };

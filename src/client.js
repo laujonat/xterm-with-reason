@@ -1,4 +1,4 @@
-const App = require('../lib/js/src/App.bs.js').make;  
+const App = require('../lib/js/src/App.bs.js').make;
 import './client.css';
 import './xterm.css';
 
@@ -18,22 +18,23 @@ let renderClient = hydrate(
 let renderXTerm = () => {
   const protocol = (location.protocol === 'https:') ? 'wss://' : 'ws://';
   const port = location.port ? `:${location.port}` : '';
-  
-  const socketUrl = `${protocol}${location.hostname}${port}/shell`;
+
+  const socketUrl = `${protocol}${location.hostname}${port}`;
   const webSocket = new WebSocket(socketUrl);
 
   const shell = new Terminal();
   const fitAddon = new FitAddon();
   const attachAddon = new AttachAddon(webSocket);
-  
+  const weblinksAddon = new WebLinksAddon();
 
-  shell.loadAddon(new WebLinksAddon());
-  shell.loadAddon(fitAddon);
   shell.loadAddon(attachAddon);
+  shell.loadAddon(weblinksAddon);
+  shell.loadAddon(fitAddon);
 
-  
   shell.open(document.getElementById('terminal'));
-  shell.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
+  fitAddon.fit();
+
+  shell.write('\x1B[1;3;31mxterm.js\x1B[0m $ ');
 }
 
 window.addEventListener('DOMContentLoaded', renderClient, false);

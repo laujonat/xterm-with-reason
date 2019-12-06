@@ -1,12 +1,4 @@
-include Css;
-module Styles = {
-  let container =
-    style([
-      color(rgba(242, 238, 238, 1.0)),
-      minHeight(vh(100.0)),
-      overflow(hidden),
-    ]);
-};
+include Styles;
 
 [@react.component]
 let make = () => {

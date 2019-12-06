@@ -1,12 +1,10 @@
-import express from 'express';
-
-let app = require('./server').default;
+let server = require('./server').default;
 
 if (module.hot) {
   module.hot.accept('./server', function() {
     console.log('🔁  HMR Reloading `./server`...');
     try {
-      app = require('./server').default;
+      server = require('./server').default;
     } catch (error) {
       console.error(error);
     }
@@ -16,8 +14,7 @@ if (module.hot) {
 
 const port = process.env.PORT || 3000;
 
-export default express()
-  .use((req, res) => app.handle(req, res))
+server.use((req, res) => server.handle(req, res))
   .listen(port, function(err) {
     if (err) {
       console.error(err);
@@ -25,3 +22,5 @@ export default express()
     }
     console.log(`> Started on port ${port}`);
   });
+
+export default server;
